@@ -1,0 +1,36 @@
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+
+    {% load static %}
+    <link rel="stylesheet" href="{% static 'css/login.css' %}">
+    <link rel="stylesheet" href="{% static 'css/pico.min.css' %}">
+
+    <title>Bakshe Cholo</title>
+  </head>
+  <body>
+    <nav class='container-fluid'>
+      <ul>
+        <li><strong>Bakshe Cholo</strong></li>
+      </ul>
+      <ul>
+        <li><a href="{% url 'home' %}" class='secondary'>Home</a></li>
+        <li><a href="{% url 'coordinates-form' %}" class='secondary'>Maps form</a></li>
+        {%if user.is_authenticated %}
+        <li><a href="{% url 'search' %}" class='secondary' >Search</a></li>
+        <li><a href="{% url 'logout' %}" class='secondary' >Logout</a></li>
+         
+        {% endif %}
+      </ul>
+    </nav>
+  </div>
+ 
+    <main class="container">
+      {% block content %}
+      {% endblock content %}
+    </main>
+
+  </body>
+</html>
